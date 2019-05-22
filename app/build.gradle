@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "ir.teachcode.app.flashlight"
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '28.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ext {
+    gmsPlayServicesVersion = '16.+'
+    supportLibraryVersion = '28.0.0'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //Android Support Library
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "com.android.support:support-v4:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+    implementation "com.android.support:cardview-v7:$supportLibraryVersion"
+    implementation "com.google.android.gms:play-services-gcm:$gmsPlayServicesVersion"
+    implementation "com.google.android.gms:play-services-location:$gmsPlayServicesVersion"
+    implementation "com.google.android.gms:play-services-ads-identifier:$gmsPlayServicesVersion"
+    implementation 'com.goebl:david-webb:1.3.0'
+    //ButterKnife
+    implementation 'com.jakewharton:butterknife:8.0.1'
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.0.1"
+    implementation 'co.ronash.android:pushe-base:1.6.3'
+    implementation project(':adad-sdk-ad-5.1.1')
+    implementation project(':adad-sdk-core-5.1.1')
+    implementation project(':adad-sdk-banner-5.1.1')
+}

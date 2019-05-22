@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="ir.teachcode.app.flashlight"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+
+    <uses-feature android:name="android.hardware.camera2"/>
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity android:name=".ui.activity.StartupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.activity.AboutActivity"/>
+        <activity android:name=".ui.activity.AlarmActivity"/>
+        <activity android:name=".ui.activity.PoliceActivity"/>
+        <activity android:name=".ui.activity.ColorScreenActivity"/>
+        <activity android:name=".ui.activity.HelpActivity"/>
+
+        <receiver
+            android:name=".ui.widget.AppWidgetOneXFour"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/str_widget_1x4">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget"/>
+        </receiver>
+
+        <receiver
+            android:name=".ui.widget.AppWidgetOneXOne"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/str_widget_1x1">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_one"/>
+        </receiver>
+
+        <meta-data
+            android:name="co.ronash.pushe.token"
+            android:value="PUSHE_694625446150"/>
+        <meta-data
+            android:name="co.ronash.pushe.cr"
+            android:value="Tm9uZQ=="/>
+
+    </application>
+
+</manifest>

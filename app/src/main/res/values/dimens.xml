@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="txt_size">16sp</dimen>
+    <dimen name="app_bar_top_padding">0dp</dimen>
+    <dimen name="size_flash_led">128dp</dimen>
+    <dimen name="size_logo">128dp</dimen>
+    <dimen name="size_img_play">72dp</dimen>
+    <dimen name="size_img_back">48dp</dimen>
+</resources>

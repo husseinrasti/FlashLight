@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:keepScreenOn="true"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/item_line_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <ImageView
+            android:id="@+id/imgLayoutPolice"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_circle"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_red_police_light"
+            app:layout_constraintBottom_toTopOf="@id/imgFlashLed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgLayoutScreen"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <ImageView
+            android:id="@+id/imgLayoutScreen"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_circle"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/shape_circle_fill"
+            app:layout_constraintBottom_toTopOf="@id/imgFlashLed"
+            app:layout_constraintEnd_toStartOf="@id/imgLayoutPolice"
+            app:layout_constraintStart_toEndOf="@id/imgLayoutAlarm"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <ImageView
+            android:id="@+id/imgLayoutAlarm"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/shape_circle"
+            android:contentDescription="@string/app_name"
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_warning_alarm"
+            app:layout_constraintBottom_toTopOf="@id/imgFlashLed"
+            app:layout_constraintEnd_toStartOf="@id/imgLayoutScreen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <ImageView
+            android:id="@+id/imgFlashLed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/shape_circle"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_torch_default"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <ir.adad.banner.AdadBannerAd
+            android:id="@+id/banner_ad_view"
+            app:token="24d98f89-dd92-460b-a280-8739f1a64cf4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgFlashLed"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/colorBgDrawer"
+        app:headerLayout="@layout/drawer_header"
+        app:itemTextColor="@color/content_color"
+        app:menu="@menu/drawer"/>
+
+</android.support.v4.widget.DrawerLayout>

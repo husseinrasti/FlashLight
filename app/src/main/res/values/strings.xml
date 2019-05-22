@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="txt_ok">OK</string>
+    <string name="app_name">چراغ قوه</string>
+    <string name="txt_name_flashlight">چراغ قوه</string>
+    <string name="txt_name_policelights">چراغ پلیس</string>
+    <string name="txt_name_alarm">آژیر خطر</string>
+    <string name="txt_name_screen_light">نور صفحه</string>
+    <string name="txt_toggle_on">خاموش/روشن کردن صفحه</string>
+    <string name="txt_toggle_off">خاموش کردن صفحه</string>
+    <string name="txt_about_app">نرم افزار ویجت چراغ قوه نسخه 2.0</string>
+    <string name="txt_about_author">طراح و برنامه نویس: حسین راستی</string>
+    <string name="txt_about_email">ایمیل: teachcode.ir@gmail.com</string>
+    <string name="txt_about_feedback">پذیرای نظرات و پیشنهادات شما دوستان عزیز می باشیم</string>
+    <string name="runtime_permissions_txt">لطفا برای روشن شدن چراغ قوه دسترسی مربوطه را اعمال کنید.</string>
+
+    <string name="nav_item_share">ارسال نرم افزار</string>
+    <string name="nav_item_software">برنامه</string>
+    <string name="nav_item_star">5 ستاره</string>
+    <string name="nav_sub_menu_developer">توسعه دهنده</string>
+    <string name="nav_sub_menu_about">درباره</string>
+    <string name="nav_sub_menu_app">نرم افزار های دیگر</string>
+    <string name="nav_sub_menu_ads">تبلیغات</string>
+    <string name="nav_sub_menu_help">راهنما</string>
+    <string name="str_okay">خب</string>
+    <string name="str_dialog_1">بااحترام</string>
+    <string name="str_dialog_2">کاربران عزیز و گرامی</string>
+    <string name="str_dialog_3">با توجه به اینکه این برنامه کاملا رایگان می باشد</string>
+    <string name="str_dialog_4">تنها خواهش ما از شما این است که برای یک بار تبلیغات پایین صفحات را فقط وفقط لمس کنید</string>
+    <string name="str_dialog_5">با سپاس فراوان، شاد و پیروز باشید</string>
+    <string name="str_dialog_dont_show">دیگر نشان نده</string>
+    <string name="share_text">\nشما میتوانید بهترین برنامه چراغ قوه راه از لینک زیر در کافه بازار دانلود کنید.</string>
+    <string name="share_using">اشتراک اپ</string>
+
+    <string name="str_widget_1x1">ویجت 1*1</string>
+    <string name="str_widget_1x4">ویجت 4*1</string>
+    <string name="str_toast_install_market">برنامه کافه بازار در گوشی شما نصب نیست لطفا آن را نصب کنید!</string>
+    <string name="str_btn_color_white">سفید</string>
+    <string name="str_btn_anyway">بی خیال</string>
+    <string name="str_btn_doing">اعمال کن</string>
+    <string name="str_toast_not_support_flashlight">متاسفانه دستگاه شما از چراغ قوه پشتیبانی نمی کند!</string>
+    <string name="str_btn_snackbar_enable">مجاز</string>
+</resources>
