@@ -62,12 +62,7 @@
                 android:resource="@xml/widget_one"/>
         </receiver>
 
-        <meta-data
-            android:name="co.ronash.pushe.token"
-            android:value="PUSHE_694625446150"/>
-        <meta-data
-            android:name="co.ronash.pushe.cr"
-            android:value="Tm9uZQ=="/>
+
 
     </application>
 
