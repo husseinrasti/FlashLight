@@ -83,9 +83,7 @@ public class PoliceActivity extends AppCompatActivity {
 
         startPoliceLights();
 
-        imgBackPolice.setOnClickListener( v -> {
-            finish();
-        } );
+        imgBackPolice.setOnClickListener( v -> finish() );
     }
 
     private void policeLight() {
@@ -112,6 +110,7 @@ public class PoliceActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer.stop();
         } catch ( Exception e ) {
+            e.printStackTrace();
         }
     }
 

@@ -1,6 +1,5 @@
 package ir.teachcode.app.flashlight.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +9,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import ir.teachcode.app.flashlight.R;
-import ir.teachcode.app.flashlight.utils.SharedPref;
 
 public class HelpActivity extends AppCompatActivity {
 

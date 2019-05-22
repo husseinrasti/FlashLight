@@ -7,20 +7,31 @@
     android:background="@drawable/bg"
     android:orientation="vertical">
 
+    <ir.adad.banner.AdadBannerAd
+        android:id="@+id/banner_ad_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOkay"
+        app:token="24d98f89-dd92-460b-a280-8739f1a64cf4"/>
+
     <Button
         android:id="@+id/btnOkay"
         android:layout_width="128dp"
         android:layout_height="48dp"
         android:layout_margin="10dp"
-        android:layout_marginBottom="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/shape_dialog"
         android:text="@string/str_okay"
         android:textColor="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/LayoutTop"/>

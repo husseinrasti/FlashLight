@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -69,13 +70,12 @@ public class StartupActivity extends AppCompatActivity implements OnClickListene
     }
 
     @Override
-    public void onRequestPermissionsResult( int requestCode , String[] permissions , int[] grantResults ) {
+    public void onRequestPermissionsResult( int requestCode , @NonNull String[] permissions , @NonNull int[] grantResults ) {
         super.onRequestPermissionsResult( requestCode , permissions , grantResults );
         switch ( requestCode ) {
             case REQUEST_PERMISSIONS: {
                 if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
                     SharedPref.setGrantPermission();
-                    FlashlightProvider.getCamera();
                 } else {
                     Snackbar.make( findViewById( android.R.id.content ) , R.string.runtime_permissions_txt ,
                             Snackbar.LENGTH_LONG ).setAction( R.string.str_btn_snackbar_enable ,
@@ -104,7 +104,6 @@ public class StartupActivity extends AppCompatActivity implements OnClickListene
         } else if ( i == R.id.imgFlashLed ) {
             if ( !SharedPref.getGrantPermission() ) {
                 ActivityCompat.requestPermissions( this , new String[] { Manifest.permission.CAMERA } , REQUEST_PERMISSIONS );
-                return;
             } else {
                 flashlightProvider.checkFlashLight();
             }
@@ -120,21 +119,20 @@ public class StartupActivity extends AppCompatActivity implements OnClickListene
     @Override
     protected void onResume() {
         super.onResume();
-        FlashlightProvider.getCamera();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         // on pause turn off the flash
-        flashlightProvider.onPause();
+        flashlightProvider.close();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         // on stop release the camera
-        flashlightProvider.onStop();
+        flashlightProvider.close();
     }
 
     @Override

@@ -2,6 +2,8 @@ package ir.teachcode.app.flashlight.utils;
 
 import android.content.Context;
 import android.hardware.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -12,6 +14,7 @@ public class FlashlightProvider {
     private static FlashlightProvider flashlightProvider;
 
     private static Camera camera;
+    private static CameraManager camManager;
     private static Camera.Parameters params;
 
     private boolean isFlashOn = false;
@@ -32,8 +35,6 @@ public class FlashlightProvider {
             Toast.makeText( context , context.getString( R.string.str_toast_not_support_flashlight ) , Toast.LENGTH_SHORT ).show();
         }
 
-        getCamera();
-
         return flashlightProvider;
     }
 
@@ -53,49 +54,70 @@ public class FlashlightProvider {
         imgFlashLed = imageView;
     }
 
-    public static void getCamera() {
-        if ( camera == null ) {
-            if ( SharedPref.getGrantPermission() ) {
-                try {
-                    camera = Camera.open();
-                    params = camera.getParameters();
-                } catch ( RuntimeException e ) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public void onPause() {
-        turnOff();
-    }
-
-    public void onStop() {
-        if ( camera != null ) {
-            camera.release();
-            camera = null;
+    public void close() {
+        if ( isFlashOn ) {
+            turnOff();
         }
     }
 
     private void turnOn() {
-        if ( camera != null ) {
-            params = camera.getParameters();
-            params.setFlashMode( Camera.Parameters.FLASH_MODE_TORCH );
-            camera.setParameters( params );
-            camera.startPreview();
-            isFlashOn = true;
-            toggleButtonImage();
+        if ( Utils.isSdk23() ) {
+            try {
+                camManager = ( CameraManager ) mContext.getSystemService( Context.CAMERA_SERVICE );
+                String cameraId = null; // Usually front camera is at 0 position.
+                if ( camManager != null ) {
+                    cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode( cameraId , true );
+                    isFlashOn = true;
+                    toggleButtonImage();
+                }
+            } catch ( CameraAccessException e ) {
+                e.printStackTrace();
+            }
+        } else if ( SharedPref.getGrantPermission() ) {
+            try {
+                camera = Camera.open();
+                params = camera.getParameters();
+                params = camera.getParameters();
+                params.setFlashMode( Camera.Parameters.FLASH_MODE_TORCH );
+                camera.setParameters( params );
+                camera.startPreview();
+                isFlashOn = true;
+                toggleButtonImage();
+            } catch ( Exception e ) {
+                e.printStackTrace();
+            }
         }
     }
 
     private void turnOff() {
-        if ( camera != null ) {
-            params = camera.getParameters();
-            params.setFlashMode( Camera.Parameters.FLASH_MODE_OFF );
-            camera.setParameters( params );
-            camera.stopPreview();
-            isFlashOn = false;
-            toggleButtonImage();
+        if ( Utils.isSdk23() ) {
+            try {
+                String cameraId;
+                camManager = ( CameraManager ) mContext.getSystemService( Context.CAMERA_SERVICE );
+                if ( camManager != null ) {
+                    cameraId = camManager.getCameraIdList()[0]; // Usually front camera is at 0 position.
+                    camManager.setTorchMode( cameraId , false );
+                    isFlashOn = false;
+                    toggleButtonImage();
+                }
+            } catch ( CameraAccessException e ) {
+                e.printStackTrace();
+            }
+        } else if ( SharedPref.getGrantPermission() ) {
+            try {
+                camera = Camera.open();
+                params = camera.getParameters();
+                params = camera.getParameters();
+                params.setFlashMode( Camera.Parameters.FLASH_MODE_OFF );
+                camera.setParameters( params );
+                camera.stopPreview();
+                camera.release();
+                isFlashOn = false;
+                toggleButtonImage();
+            } catch ( Exception e ) {
+                e.printStackTrace();
+            }
         }
     }
 
