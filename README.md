@@ -12,7 +12,6 @@ The base of this project is LED provided along with the Camera in a typical Andr
 ![Image 2 of Flash](https://github.com/husseinrasti/FlashLight/blob/master/images/2.JPG)
 ![Image 3 of Flash](https://github.com/husseinrasti/FlashLight/blob/master/images/3.JPG)
 ![Image 4 of Flash](https://github.com/husseinrasti/FlashLight/blob/master/images/4.JPG)
-![Image Widget of Flash](https://github.com/husseinrasti/FlashLight/blob/master/images/5.JPG)
 
 # Contributing
 Any help, including feedback, is highly appriciated. I have just started out with Android and I’m relatively new to app development.
