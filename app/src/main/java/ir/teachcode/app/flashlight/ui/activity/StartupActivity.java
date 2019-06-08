@@ -72,16 +72,13 @@ public class StartupActivity extends AppCompatActivity implements OnClickListene
     @Override
     public void onRequestPermissionsResult( int requestCode , @NonNull String[] permissions , @NonNull int[] grantResults ) {
         super.onRequestPermissionsResult( requestCode , permissions , grantResults );
-        switch ( requestCode ) {
-            case REQUEST_PERMISSIONS: {
-                if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
-                    SharedPref.setGrantPermission();
-                } else {
-                    Snackbar.make( findViewById( android.R.id.content ) , R.string.runtime_permissions_txt ,
-                            Snackbar.LENGTH_LONG ).setAction( R.string.str_btn_snackbar_enable ,
-                            v -> ActivityCompat.requestPermissions( this , permissions , requestCode ) ).show();
-                }
-                break;
+        if ( requestCode == REQUEST_PERMISSIONS ) {
+            if ( grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED ) {
+                SharedPref.setGrantPermission();
+            } else {
+                Snackbar.make( findViewById( android.R.id.content ) , R.string.runtime_permissions_txt ,
+                        Snackbar.LENGTH_LONG ).setAction( R.string.str_btn_snackbar_enable ,
+                        v -> ActivityCompat.requestPermissions( this , permissions , requestCode ) ).show();
             }
         }
     }
